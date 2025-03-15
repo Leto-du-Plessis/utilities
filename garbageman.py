@@ -3,7 +3,7 @@ import time
 
 # Main loop
 device = "cuda" 
-num_megabytes = 512.0                        # Set to appropriate number of megabytes
+num_megabytes = 512                          # Set to appropriate number of megabytes
 vram_size = 1024 * 1024 * num_megabytes 
 pause = 0.1                                  # Set to appropriate pause time
 iterations = 100                             # Set to appropriate number of iterations 
