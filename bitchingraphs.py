@@ -2,8 +2,18 @@
 import csv 
 import matplotlib.pyplot as plt
 
+# !!!!!!!!!!!!!!
+# instructions on how to add other data types
+# add a setting include_[data type] = True in the settings section below
+# under read logic, add a new if statement for the data type following the same format. make sure you get the correct column header
+# do this for both dataset1 and dataset 2
+# everything else should be automatic because I'm a fucking gangsta
+# !!!!!!!!!!!!!!
+
 # settings
 strip_end = True # Set to True if the dataset includes extra data at the column end (otherwise process will crash)
+trim_start = False # Set to True if you want to localize the datasets to the end of the data
+include_number_at_end = 200 # number of data points to include at the end of the dataset if trim_start = True
 
 # include data, set to False if not going looking at any particular data
 include_gpu_rail_voltages = False
@@ -76,6 +86,10 @@ if look_at_percentage:
 # time logic
 # note that to correctly plot, we need to assure that all arrays have the same length, so we trim the length of the longer array to the length of the shortest array
 # data is removed FROM THE FRONT OF THE LONGER LIST
+if trim_start:
+    dataset1array = [x[len(x)-include_number_at_end:] for x in dataset1array]
+    if compare_toggle:
+        dataset2array = [x[len(x)-include_number_at_end:] for x in dataset2array]
 if compare_toggle:
     time = list(range(0, 2*len(max(dataset1array[0], dataset2array[0])), 2))
     if len(dataset1array[0]) > len(dataset2array[0]):
