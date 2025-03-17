@@ -16,6 +16,7 @@ trim_start = False # Set to True if you want to localize the datasets to the end
 include_number_at_end = 200 # number of data points to include at the end of the dataset if trim_start = True
 
 # include data, set to False if not going looking at any particular data
+# only include on of the following at a time
 include_gpu_rail_voltages = False
 include_frame_time = False
 include_cpu_power_package_wattage = False
