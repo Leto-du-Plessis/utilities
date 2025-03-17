@@ -6,8 +6,8 @@ import matplotlib.pyplot as plt
 # settings
 # ---------------------
 strip_end = True # Set to True if the dataset includes extra data at the column end (otherwise process will crash)
-trim_start = False # Set to True if you want to localize the datasets to the end of the data
-include_number_at_end = 200 # number of data points to include at the end of the dataset if trim_start = True
+trim_start = True # Set to True if you want to localize the datasets to the end of the data
+include_number_at_end = 100 # number of data points to include at the end of the dataset if trim_start = True
 
 # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 # set data_header to whatever data you want to analyze
@@ -20,9 +20,9 @@ include_number_at_end = 200 # number of data points to include at the end of the
 # ---------------------
 #data_header = 'GPU Rail Voltages (avg) [V]'
 #data_header = 'Frame Time [ms]'
-#data_header = 'CPU Package Power [W]'
+data_header = 'CPU Package Power [W]'
 #data_header = 'GPU Temperature [°C]'
-data_header = 'GPU Memory Allocated [MB]'
+#data_header = 'GPU Memory Allocated [MB]'
 #data_header = 'GPU D3D Memory Dedicated [MB]'
 
 # percentage toggle
@@ -73,7 +73,7 @@ if look_at_percentage:
 # data is removed FROM THE FRONT OF THE LONGER LIST
 # ---------------------
 if trim_start:
-    dataset1array = dataset1[len(dataset1array)-include_number_at_end:]
+    dataset1array = dataset1array[len(dataset1array)-include_number_at_end:]
     if compare_toggle:
         dataset2array = dataset2array[len(dataset2array)-include_number_at_end:]
 if compare_toggle:
