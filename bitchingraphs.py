@@ -77,7 +77,7 @@ if trim_start:
     if compare_toggle:
         dataset2array = dataset2array[len(dataset2array)-include_number_at_end:]
 if compare_toggle:
-    time = list(range(0, 2*len(max(dataset1array, dataset2array)), 2))
+    time = list(range(0, 2*min(len(dataset1array), len(dataset2array)), 2))
     if len(dataset1array) > len(dataset2array):
         dataset1array = dataset1array[len(dataset1array)-len(dataset2array):]
     else:
